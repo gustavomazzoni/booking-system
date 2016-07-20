@@ -10,6 +10,9 @@ Both the client side webapp and the server side api are independently deployable
 Modules dependencies in client side:
 * AngularJS
 * Bootstrap 3
+* Less
+* Jasmine
+* Karma
 * Grunt
 
 Modules required in server side:
