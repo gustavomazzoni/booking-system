@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="bookingflow" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+  </head>
+  <body>
+
+    <header class="container">
+      <div class="text-center">
+        <h1>{{appName}}</h1>
+      </div>
+    </header>
+
+    <div class="content" ui-view></div>
+    
+    <footer>
+      <div class="bottom">
+        <div class="container">
+          Copyright &copy; {{appName}} {{ today | date : "yyyy" }}
+        </div>
+      </div>
+    </footer>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+  </body>
+</html>

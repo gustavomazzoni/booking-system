@@ -1,0 +1,53 @@
+<div class="container">
+
+  <section class="row booking">
+
+    <div class="page-header text-center">
+      <!-- the links to our nested states using relative paths -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
+          <ul class="breadcrumb">
+            <li><a ui-sref-active="active" ui-sref=".calendar"><span>1</span> Slots</a></li>
+            <li><a ui-sref-active="active" ui-sref=".customer"><span>2</span> Customer</a></li>
+            <li><a ui-sref-active="active" ui-sref=".payment"><span>3</span> Payment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8">
+      <form ng-submit="vm.processForm()" name="bookingForm" novalidate>
+        <div ui-view></div>
+      </form>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 reservation">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{'reservation.title' | translate}}</h3>
+        </div>
+        <div class="panel-body">
+          <h4>{{formData.service.name}}<h4>
+          <span>{{formData.slot.date | date:'EEE, MMM dd @ h:mm a'}}</span>
+        </div>
+        
+        <ul class="list-group" ng-show="formData.slot">
+          <li class="list-group-item">
+            <span>{{formData.slot.price | currency}} x {{formData.quantity}} {{'reservation.people' | translate}}:</span>
+            <span class="pull-right">{{(formData.slot.price * formData.quantity) | currency}}</span>
+          </li>
+          <li class="list-group-item">
+            <span>{{'reservation.tax' | translate}}:</span>
+            <span class="pull-right">{{formData.slot.price * formData.tax | currency}}</span>
+          </li>
+          <li class="list-group-item">
+            <span>{{'reservation.total' | translate}}:</span>
+            <span class="pull-right">{{vm.getTotal() | currency}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</div>

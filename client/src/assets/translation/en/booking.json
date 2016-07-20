@@ -1,0 +1,10 @@
+{
+	"reservation": {
+		"title": "Booking Info",
+		"datetime": "Date and hour",
+		"people": "people",
+		"tax": "Website service tax",
+		"total": "Total",
+		"buy": "Continue to Book"
+	}
+}

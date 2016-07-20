@@ -1,0 +1,10 @@
+{
+	"reservation": {
+		"title": "Dados da Reserva",
+		"datetime": "Data e hora",
+		"people": "pessoa(s)",
+		"tax": "Taxa de serviço",
+		"total": "Total",
+		"buy": "Continuar Compra"
+	}
+}

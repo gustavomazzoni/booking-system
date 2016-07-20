@@ -1,0 +1,65 @@
+<div class="customer">
+  
+  <div class="row">
+    <div class="form-group col-xs-12 col-sm-6" ng-class="{ 'has-error': bookingForm.firstName.$invalid && bookingForm.firstName.$dirty}">
+      <label for="first_name">First Name:</label>
+      <input type="text" class="form-control" ng-model="formData.customer.firstName" id="first_name" 
+      name="firstName" placeholder="Enter your first name" required>
+      <p ng-show="bookingForm.firstName.$error.required" class="help-block">Required</p>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6" ng-class="{ 'has-error': bookingForm.lastName.$invalid && bookingForm.lastName.$dirty}">
+      <label for="last_name">Last Name:</label>
+      <input id="last_name" ng-model="formData.customer.lastName" type="text" class="form-control" 
+      name="lastName" placeholder="Enter your last name" required>
+      <p ng-show="bookingForm.lastName.$error.required" class="help-block">Required</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="row">
+        <div class="form-group col-xs-6" ng-class="{ 'has-error': bookingForm.age.$invalid && bookingForm.age.$dirty}">
+          <label for="age">Age:</label>
+          <input type="number" class="form-control" ng-model="formData.customer.age" id="age" min="18" step="1" name="age" placeholder="20" required>
+          <p ng-show="bookingForm.age.$error.required" class="help-block">Required</p>
+        </div>
+        <div class="form-group col-xs-6" ng-class="{ 'has-error': bookingForm.weight.$invalid && bookingForm.weight.$dirty}">
+          <label for="weight">Weight (kg):</label>
+          <input type="number" name="weight" class="form-control" ng-model="formData.customer.weight" id="weight" min="45" step="1" placeholder="67.5" required>
+          <p ng-show="bookingForm.weight.$error.required" class="help-block">Required</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6" ng-class="{ 'has-error': bookingForm.gender.$invalid && bookingForm.gender.$dirty}">
+      <label for="gender_input">Gender:</label>
+      <div id="gender_input">
+        <label for="gender_male" class="radio-inline col-xs-5">
+          <input type="radio" id="gender_male" ng-model="formData.customer.gender" name="gender" ng-model="formData.customer.gender" value="Male"> Male
+        </label>
+        <label for="gender_female" class="radio-inline col-xs-5">
+          <input type="radio" id="gender_female" ng-model="formData.customer.gender" name="gender" ng-model="formData.customer.gender" value="Female"> Female
+        </label>
+        <p ng-show="bookingForm.gender.$error.required" class="help-block">Required</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-12" ng-class="{ 'has-error': bookingForm.chp.$invalid && bookingForm.chp.$dirty}">
+      <label for="select">Chronic Health Problems:</label>
+      <select ng-model="formData.customer.chp" name="chp" class="form-control" required>
+          <option>N/A</option>
+          <option ng-repeat="chp in vm.chronicHealthProblems">{{chp}}</option>
+      </select>
+      <p ng-show="bookingForm.chp.$error.required" class="help-block">Required</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-12" ng-class="{ 'has-error': bookingForm.email.$invalid && bookingForm.email.$dirty}">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" name="email" ng-model="formData.customer.email" id="email" placeholder="Enter your email" required>
+      <p ng-show="bookingForm.email.$error.required" class="help-block">Required</p>
+    </div>
+  </div>
+
+  <button class="btn btn-lg btn-primary" ng-disabled="bookingForm.$invalid" type="submit">{{'reservation.buy' | translate}}</button>
+
+</div>

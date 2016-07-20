@@ -1,0 +1,59 @@
+
+  <!-- Calendar Component -->
+  <div class="booking-calendar panel panel-default" ng-switch on="component">
+    <div class="panel-heading">
+      <span class="open pull-left" ng-switch-when="slots" ng-click="openCalendar()"> Open </span>
+      <span class="open pull-left" ng-switch-default ng-if="hasPreviousMonth()" 
+        ng-click="previousMonth()"> 〈 </span>
+      <span class="open pull-right" ng-switch-default ng-click="nextMonth()"> 〉 </span>
+      <h3 class="panel-title text-center">
+        <span class="month-year"> {{ calendar.monthDate | date: 'MMM yyyy' }} </span>
+      </h3>
+    </div>
+    <!-- Table -->
+    <table class="table" ng-if="weeks">
+      <thead><tr><th ng-repeat="weekday in weekdays">{{ weekday }}</th></tr></thead>
+      <tbody>
+        <tr ng-repeat="week in weeks">
+          <td ng-repeat="date in week" ng-class="{'muted' : !date.day, 'today' : date.today, 'past' : date.past, 'available' : date.available, 'selected' : (date.date === selectedDate) }" 
+          ng-click="selectDate(date)">
+            {{date.day}}
+            <br/>
+            <span class="detail">{{date.details.minPrice | currency}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Append Slots Component -->
+    <!-- TODO: Parse into directive -->
+    <div class="slots panel-body" ng-switch-when="slots">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Price</th>
+            <th>Vacancies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="slot in availableSlots" ng-class="{'selected' : selectedSlot == slot}" 
+            ng-click="selectSlot(slot)">
+            <td>
+              {{slot.date | date:'shortTime'}}
+            </td>
+            <td>
+              {{slot.price | currency}}
+            </td>
+            <td>
+              {{slot.vacancies}}
+            </td>
+          </tr>
+        </tbody>
+      </table>      
+    </div>
+
+    <div class="loading" ng-if="!weeks">
+      <p>Loading dates...</p>
+    </div>
+  </div>

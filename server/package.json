@@ -1,0 +1,19 @@
+{
+  "name": "bookingflow",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "mocha tests --recursive",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1",
+    "mongodb" : "~1.4.26",
+    "mongoose": "^4.4.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}

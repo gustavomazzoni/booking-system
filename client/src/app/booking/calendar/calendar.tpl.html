@@ -1,0 +1,23 @@
+<div class="calendar">
+
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
+      <div class="form-group">
+        <label>Number of adventurous:</label>
+        <select name="quantityFilter" ng-model="vm.selectedQuantity" class="form-control"
+          ng-options="quantity for quantity in vm.quantities track by quantity"
+          ng-change="$state.go('.',{quantity: vm.selectedQuantity})"></select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Componentes -->
+  <booking-calendar available-dates="vm.availableDates" selected-date="vm.selectedDate"
+    on-month-change="vm.loadDatesMonth" on-date-selected="vm.selectDate" 
+    available-slots="vm.slots" on-slot-selected="vm.selectSlot"></booking-calendar>
+
+  <button type="submit" class="btn btn-lg btn-primary" ng-show="formData.slot">
+    {{'reservation.buy' | translate}}
+  </button>
+
+</div>

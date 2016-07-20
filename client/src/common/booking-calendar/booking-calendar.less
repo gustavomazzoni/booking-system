@@ -1,0 +1,94 @@
+.booking-calendar {
+
+	.table {
+
+		th, td {
+			text-align: center;
+		}
+
+		td {
+			font-size: 20px;
+    		
+    		span.detail {
+    			font-size: .6em;
+    		}
+
+    		&.available {
+				background-color: lightgreen;
+
+				&:hover {
+					cursor: pointer;
+					border: 1px solid #337ab7;
+				}
+
+				&.selected {
+					background-color: #337ab7;
+					border-color: #337ab7;
+					color: #ffffff;
+				}
+			}
+
+			&.today {
+				background-color: #f5f5f5;
+			}
+		}
+
+	}
+
+	.panel-heading {
+		.open {
+			color: #337ab7;
+			cursor: pointer;
+		}
+	}
+
+	.slots {
+		.table {
+			tbody tr {
+				&:hover {
+					cursor: pointer;
+					background-color: #f5f5f5;
+				}
+				&.selected {
+					background-color: #337ab7;
+					border-color: #337ab7;
+					color: #ffffff;
+				}
+			}
+		}
+	}
+  
+}
+
+/*<600px: For Mobile*/
+@media screen and (max-width : 600px) {
+	.booking-calendar {
+
+		.table {
+
+			td {
+			
+				span.detail {
+	    			display: none;
+	    		}
+	    	}
+	    }
+	}
+}
+
+/*>768px and <990px*/
+@media screen and (min-width : 768px) and (max-width : 990px) {
+	.booking-calendar {
+
+		.table {
+
+			td {
+			
+				span.detail {
+	    			font-size: .5em;
+	    		}
+	    	}
+	    }
+	}
+}
+
