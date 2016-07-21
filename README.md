@@ -1,19 +1,28 @@
 # Booking flow (Booking System)
 ## Goal
-Create a basic Booking application with a simple ‘booking flow’, that in theory could be added a link to, from a product page, an order confirmation or something similar. The flow should enable the customer to choose the date, on which they want to try the experience.
+Create a basic Booking application with a simple 'booking flow', that could be added a link to, from a product page, an order confirmation or something similar. The flow should enable the customer to choose the date and slot, on which they want to try the experience.
 
 ## Solution
 A single-page application was built using [AngularJS](https://angularjs.org/), for the client side, consuming a RESTful API, built in NodeJS, that exposes the service/product basic information, the available slots/dates and booking registration. The REST API is integrated to a MongoDB database to save and query objects.
+
+### Key Solutions
+* Simple, Modular, Decoupled and Reusabable code.
+* Created Angular directive for the Calendar component designed specially for booking purpose with the ability to drill down to slot selection.
+* Booking flow with wizard structure using angular-ui with nested states and views, and scope inheritance.
 
 Both the client side webapp and the server side api are independently deployable software packages.
 
 Modules dependencies in client side:
 * AngularJS
+* [Angular UI](http://angular-ui.github.io)
+* [angular-translate](https://angular-translate.github.io/)
 * Bootstrap 3
 * Less
 * Jasmine
 * Karma
 * Grunt
+* [Bower](http://bower.io)
+* [ngBoilerplate](https://github.com/ngbp/ngbp)
 
 Modules required in server side:
 * NodeJS
@@ -36,6 +45,7 @@ $ git clone https://github.com/gustavomazzoni/booking-system
 
 ### NodeJS RESTful API
 #### Install
+Make sure Node.js is installed and then:
 Install MongoDB
 ```sh
 $ brew install mongodb
@@ -56,7 +66,7 @@ $ npm start
 ```
 ### Test
 #### SERVICE ID
-The first time application start, it will populate de DB with one service and some slots for this service so we can see the web app working. At the console, find for '### SERVICE ID:' and get ID string for the service created.
+The first time application start, it will populate de DB with one service and some slots for this service so we can see the web app working. At the console, after 'npm start', find for '### SERVICE ID:' and get ID string for the service created.
 
 ### Test the API
 #### Available Dates
@@ -75,10 +85,12 @@ Filtering by vacancy number ('quantity' parameter) is optional. If not informed 
 
 
 ### AngularJS Webapp
+Make sure Node.js is installed and then:
 Inside client folder:
 #### Install
 Install project dependencies
 ```sh
+$ sudo npm -g install grunt-cli karma bower
 $ npm install
 ```
 #### Build & watch
