@@ -24,12 +24,14 @@ Modules required in server side:
 ## Next versions
 * Unit test
 * Security to REST API
+* Confirmation page
+* Payment process
 
 ## Running the app
 ### Download the project
 Download or clone the project with the following command:
 ```sh
-$ git clone https://github.com/gustavomazzoni/
+$ git clone https://github.com/gustavomazzoni/booking-system
 ```
 
 ### NodeJS RESTful API
