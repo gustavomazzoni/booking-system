@@ -39,15 +39,6 @@ angular.module( 'bookingflow.booking', [
           $state.transitionTo('booking.calendar', toParams);
         }
         break;
-      case 'booking.confirmation':
-        // check if booking process is finished
-        if (!booking.isFinished()) {
-          event.preventDefault();
-          console.log('Request not valid');
-          // if not valid
-          // Redirect to first state.
-          $state.transitionTo('booking.calendar', toParams);
-        }
     }
   });
 }])

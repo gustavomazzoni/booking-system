@@ -12,7 +12,7 @@
     </div>
     <!-- Table -->
     <table class="table" ng-if="weeks">
-      <thead><tr><th ng-repeat="weekday in weekdays">{{ weekday }}</th></tr></thead>
+      <thead><tr><th ng-repeat="weekday in calendar.weekdays">{{ weekday }}</th></tr></thead>
       <tbody>
         <tr ng-repeat="week in weeks">
           <td ng-repeat="date in week" ng-class="{'muted' : !date.day, 'today' : date.today, 'past' : date.past, 'available' : date.available, 'selected' : (date.date === selectedDate) }" 

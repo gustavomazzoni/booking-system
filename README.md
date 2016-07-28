@@ -8,13 +8,13 @@ A single-page application was built using [AngularJS](https://angularjs.org/), f
 ### Key Solutions
 * Simple, Modular, Decoupled and Reusabable code.
 * Created Angular directive for the Calendar component designed specially for booking purpose with the ability to drill down to slot selection.
-* Booking flow with wizard structure using angular-ui with nested states and views, and scope inheritance.
+* Booking flow with wizard structure using UI-Router with nested states and views, and scope inheritance.
 
 Both the client side webapp and the server side api are independently deployable software packages.
 
 Modules dependencies in client side:
 * AngularJS
-* [Angular UI](http://angular-ui.github.io)
+* [AngularUI Router](https://github.com/angular-ui/ui-router)
 * [angular-translate](https://angular-translate.github.io/)
 * Bootstrap 3
 * Less
